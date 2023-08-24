@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/Layout.astro
-title: "VNN"
+title: "vnn"
 ---
 
 # VNN
