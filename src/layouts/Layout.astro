@@ -2,11 +2,9 @@
 import "../styles/style.css";
 const { frontmatter } = Astro.props;
 
-
 const baseUrl = "https://github.com/markokroselj/vnn/tree/main/src/pages";
 const urlToAdd = frontmatter.url ? frontmatter.url + ".md" : "/index.md";
 const githubPageUrl = baseUrl + urlToAdd;
-
 ---
 
 <!DOCTYPE html>
@@ -43,7 +41,6 @@ const githubPageUrl = baseUrl + urlToAdd;
 				<li><a href="poplave">poplave</a></li>
 				<li><a href="potres">potres</a></li>
 				<li><a href="plaz">plaz</a></li>
-
 			</ul>
 		</nav>
 		<main>
@@ -52,7 +49,10 @@ const githubPageUrl = baseUrl + urlToAdd;
 		<footer>
 			<p>
 				<a href={githubPageUrl} target="_blank">Uredi stran</a>
-				Vnn copyright&copy 2016-2023 by <a href="http://www.markokroselj.com/" >Marko Krošelj </a>
+				Vnn copyright&copy 2016-2023 by <a
+					href="http://www.markokroselj.com/"
+					>Marko Krošelj
+				</a>
 			</p>
 		</footer>
 	</body>
