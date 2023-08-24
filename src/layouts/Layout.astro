@@ -1,39 +1,56 @@
---- 
-interface Props {
-	title: string;
-}
+---
+import "../styles/style.css";
+const { frontmatter } = Astro.props;
 
-const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="si">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
+		<meta
+			name="description"
+			content="Varstvo pred naravnimi in drugimi nesrečami"
+		/>
+		<meta name="author" content="Marko Krošelj" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta
+			name="keywords"
+			content="VNN,požar,poplava,potres,plaz,nus,varstvo"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/naslovna_slika.gif" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>{frontmatter.title}</title>
 	</head>
 	<body>
-		<slot />
+		<header>
+			<div id="logo"><img src="/logo.webp" alt="Vnn logotip" /></div>
+			<nav id="top-nav">
+				<a href="/">Domov</a>
+				<a href="http://wap.sos112.si/Dogodek">sos</a>
+				<a href="http://spin.sos112.si/spin2/javno/"
+					>spin-grafični prikaz dokodkov</a
+				>
+			</nav>
+		</header>
+		<nav id="main-nav">
+			<ul>
+				<li><a href="poplave">poplave</a></li>
+				<li><a href="potres">potres</a></li>
+				<li><a href="plaz">plaz</a></li>
+
+			</ul>
+		</nav>
+		<main>
+			<slot />
+		</main>
+		<footer>
+			<p>
+				Vnn copyright&copy 2016-2023 by <a
+					href="http://www.markokroselj.com/"
+					class="fa">Marko Krošelj</a
+				>.
+			</p>
+		</footer>
 	</body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151A;
-		background-size: 224px;
-	}
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
