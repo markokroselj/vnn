@@ -5,6 +5,7 @@ const { frontmatter } = Astro.props;
 const baseUrl = "https://github.com/markokroselj/vnn/tree/main/src/pages";
 const urlToAdd = frontmatter.url ? frontmatter.url + ".md" : "/index.md";
 const githubPageUrl = baseUrl + urlToAdd;
+const allPages = await Astro.glob("../pages/*.md");
 ---
 
 <!DOCTYPE html>
@@ -38,9 +39,20 @@ const githubPageUrl = baseUrl + urlToAdd;
 		</header>
 		<nav id="main-nav">
 			<ul>
-				<li><a href="poplave">poplave</a></li>
-				<li><a href="potres">potres</a></li>
-				<li><a href="plaz">plaz</a></li>
+				{
+					allPages.map((item) =>
+					 	item.frontmatter["title"] == undefined ||
+						item.url.includes("404") ||
+						item.url.includes("index") ||
+						item.url.trim() == "" ? null : (
+							<li>
+								<a href={item.url}>
+									{item.frontmatter["title"].toLowerCase()}
+								</a>
+							</li>
+						)
+					)
+				}
 			</ul>
 		</nav>
 		<main>
