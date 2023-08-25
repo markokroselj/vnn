@@ -119,13 +119,13 @@ footer a:hover {
     background: #9795a1;
     border-radius: 5px;
 }
-
+/* 
 @media (max-width: 620px) {
     body {
         grid-template-areas: "header" "nav" "main" "footer";
         grid-template-columns: 1fr;
         grid-template-rows: min-content min-content auto min-content
-    }  
+    }
 
     #main-nav {
         padding: 0;
@@ -143,5 +143,11 @@ footer a:hover {
         justify-content: center;
         gap: 15px;
         flex-direction: row;
+        flex-wrap: column wrap;
+        overflow-x: auto;
     }
-}
+
+    #main-nav ul li {
+        white-space: nowrap;
+    }
+} */
