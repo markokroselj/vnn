@@ -14,8 +14,8 @@ header {
     grid-area: header;
 }
 
-#logo{
-    min-height: 122px;
+#logo {
+    min-height: 124px;
     display: flex;
     justify-content: center;
 }
@@ -27,7 +27,7 @@ header {
 #top-nav {
     background-color: lime;
     border-bottom: solid 2px gray;
-    padding: 20px;
+    padding: 15px;
     display: flex;
     align-content: center;
     justify-content: center;
@@ -50,11 +50,12 @@ header {
     grid-area: nav;
     background-color: lime;
     border-right: solid 2px gray;
+    overflow-y: auto;
 }
 
 #main-nav ul {
     padding: 7px;
-    gap: 5px;
+    gap: 7px;
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -74,9 +75,7 @@ header {
 }
 
 #main-nav ul li:hover {
-    text-decoration: none;
     background-color: #4FBC06;
-
 }
 
 main {
@@ -97,11 +96,53 @@ footer {
     text-align: center;
 }
 
-footer a{
+footer a {
     text-decoration: none;
     color: #fff;
 }
 
-footer a:hover{
+footer a:hover {
     text-decoration: underline;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #9795a1;
+    border-radius: 5px;
+}
+
+@media (max-width: 620px) {
+    body {
+        grid-template-areas: "header" "nav" "main" "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 45px auto auto
+
+    }
+
+    #main-nav {
+        padding: 0;
+        overflow-x: auto;
+        position: sticky;
+        top: 0;
+        overflow-y: hidden;
+        border-right: none;
+        border-bottom: solid 2px gray;
+
+    }
+
+    #main-nav ul {
+        align-content: center;
+        justify-content: center;
+        gap: 15px;
+        flex-direction: row;
+    }
 }
