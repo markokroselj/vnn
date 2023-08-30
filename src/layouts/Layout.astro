@@ -1,11 +1,12 @@
 ---
 import "../styles/style.css";
+import { ViewTransitions } from 'astro:transitions';
 const { frontmatter } = Astro.props;
 
 const baseUrl = "https://github.com/markokroselj/vnn/tree/main/src/pages";
 const urlToAdd = frontmatter.url ? frontmatter.url + ".md" : "/index.md";
 const githubPageUrl = baseUrl + urlToAdd;
-const allPages = await Astro.glob("../pages/*.md");
+const allPages = await Astro.glob("../pages/*.{mdx,md}");
 ---
 
 <!DOCTYPE html>
@@ -25,6 +26,7 @@ const allPages = await Astro.glob("../pages/*.md");
 		<link rel="icon" type="image/svg+xml" href="/naslovna_slika.gif" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{frontmatter.title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<header>
@@ -32,9 +34,8 @@ const allPages = await Astro.glob("../pages/*.md");
 			<nav id="top-nav">
 				<a href="/">Domov</a>
 				<a href="http://wap.sos112.si/Dogodek">sos</a>
-				<a href="http://spin.sos112.si/spin2/javno/"
-					>spin-grafični prikaz dokodkov</a
-				>
+				<a href="https://spin3.sos112.si/javno/zemljevid">spin-grafični prikaz dokodkov</a>				
+				<a href="https://meteo.arso.gov.si/met/sl/weather/observ/radar/">radarska slika padavin</a>
 			</nav>
 		</header>
 		<nav id="main-nav">
